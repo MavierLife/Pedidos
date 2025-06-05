@@ -1,0 +1,47 @@
+[
+    {
+        "UUIDProducto": "1002",
+        "Descripcion": "HIGIENICO NEVAX PRACTIMAS",
+        "Contenido1": "12X4 FARDO",
+        "Fardo": "10",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-06-05 14:40:44"
+    },
+    {
+        "UUIDProducto": "1014",
+        "Descripcion": "PASTA FAMA CONCHA",
+        "Contenido1": "48X200GRS FARDO",
+        "Fardo": "10",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-06-05 14:41:07"
+    },
+    {
+        "UUIDProducto": "1018",
+        "Descripcion": "TOALLAS MULTIUSOS DURAMAX",
+        "Contenido1": "24X52U FARDO",
+        "Fardo": "0",
+        "Unidades": "50",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-06-05 14:41:58"
+    },
+    {
+        "UUIDProducto": "1002",
+        "Descripcion": "HIGIENICO NEVAX PRACTIMAS",
+        "Contenido1": "12X4 FARDO",
+        "Fardo": "10",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-06-05 14:43:17"
+    },
+    {
+        "UUIDProducto": "1002",
+        "Descripcion": "HIGIENICO NEVAX PRACTIMAS",
+        "Contenido1": "12X4 FARDO",
+        "Fardo": "10",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-06-05 14:44:34"
+    }
+]
