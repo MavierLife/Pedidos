@@ -362,9 +362,8 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenido a la Página Principal</h1>
-        <p>Has iniciado sesión correctamente.</p>
-        <p>UUID Sucursal: <?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?>
+        <h1>Generar Pedido Sucursal</h1>
+        <p>Sucursal: <?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?>
             <button type="button" id="verPedidoBtn" class="action-btn" style="margin-bottom: 20px;">Ver Pedido Actual</button>
         </p>
 

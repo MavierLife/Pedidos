@@ -70,6 +70,14 @@ if (file_exists($filePath)) {
     }
 }
 
+// Verificar si el producto ya existe en el pedido
+foreach ($pedidos as $pedidoExistente) {
+    if (isset($pedidoExistente['UUIDProducto']) && $pedidoExistente['UUIDProducto'] === $uuidProducto) {
+        echo json_encode(['success' => false, 'message' => 'Este producto ya se encuentra en el registro.']);
+        exit;
+    }
+}
+
 
 $nuevoPedido = [
     'UUIDProducto' => $uuidProducto,
