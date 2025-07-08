@@ -1,0 +1,227 @@
+[
+    {
+        "UUIDProducto": "6456",
+        "Descripcion": "YM ZAMBO CHICHARRON",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "4",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:45:23"
+    },
+    {
+        "UUIDProducto": "6457",
+        "Descripcion": "YM ZAMBO PICOSITAS",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "5",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:45:29"
+    },
+    {
+        "UUIDProducto": "6458",
+        "Descripcion": "YM CHICHARRONES AUTENTICOS",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "4",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:45:41"
+    },
+    {
+        "UUIDProducto": "6459",
+        "Descripcion": "YM CHICHARRONES PICOSITOS",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "3",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:45:50"
+    },
+    {
+        "UUIDProducto": "6463",
+        "Descripcion": "YM ZIBAS CLASICAS",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "5",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:46:06"
+    },
+    {
+        "UUIDProducto": "6464",
+        "Descripcion": "YM ZIBAS CREMAS Y ESPECIES",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "5",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:46:14"
+    },
+    {
+        "UUIDProducto": "7075",
+        "Descripcion": "YM ANILLITOS DE PAPA BBQ",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "4",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:46:21"
+    },
+    {
+        "UUIDProducto": "7195",
+        "Descripcion": "YM ZAMBO ORIGINAL",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "3",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:46:33"
+    },
+    {
+        "UUIDProducto": "7295",
+        "Descripcion": "YM ZIBAS QUESO",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "3",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:46:47"
+    },
+    {
+        "UUIDProducto": "7296",
+        "Descripcion": "YM ZAMBO CON TAJIN",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "2",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:46:53"
+    },
+    {
+        "UUIDProducto": "7294",
+        "Descripcion": "YM ZAMBO MADURITOS",
+        "Contenido1": "1X24 FARDO",
+        "Fardo": "0",
+        "Unidades": "3",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:47:43"
+    },
+    {
+        "UUIDProducto": "4127",
+        "Descripcion": "BEB ALOE OKF ALOE VERA",
+        "Contenido1": "20X500ML FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:55:55"
+    },
+    {
+        "UUIDProducto": "4749",
+        "Descripcion": "BEB ALOE OKF COCO ALOE",
+        "Contenido1": "20X500ML FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:56:01"
+    },
+    {
+        "UUIDProducto": "5045",
+        "Descripcion": "BEB ALOE OKF FRESA ALOE",
+        "Contenido1": "20X500ML FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:56:07"
+    },
+    {
+        "UUIDProducto": "876",
+        "Descripcion": "BEB SALVA COLA",
+        "Contenido1": "24X12.ONZAS FARDO",
+        "Fardo": "3",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:58:14"
+    },
+    {
+        "UUIDProducto": "1489",
+        "Descripcion": "BEB ILC COCA COLA",
+        "Contenido1": "12X1.25LTS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:58:37"
+    },
+    {
+        "UUIDProducto": "5451",
+        "Descripcion": "BEB ILC COCA COLA",
+        "Contenido1": "4X3LTS FARDO",
+        "Fardo": "3",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:58:45"
+    },
+    {
+        "UUIDProducto": "4244",
+        "Descripcion": "GALLETA MUUUU… MANTEQUILLA",
+        "Contenido1": "24X12U CAJA",
+        "Fardo": "0",
+        "Unidades": "12",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:29:45"
+    },
+    {
+        "UUIDProducto": "5738",
+        "Descripcion": "BEB ILC FANTA NARANJA",
+        "Contenido1": "12X1.25LTS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:14:18"
+    },
+    {
+        "UUIDProducto": "5740",
+        "Descripcion": "BEB ILC UVA",
+        "Contenido1": "12X1.25LTS FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:14:40"
+    },
+    {
+        "UUIDProducto": "1079",
+        "Descripcion": "BEB ILC UVA",
+        "Contenido1": "6X2.5LTS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:14:47"
+    },
+    {
+        "UUIDProducto": "6004",
+        "Descripcion": "BEB ILC FRESA",
+        "Contenido1": "6X2.5LTS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:15:05"
+    },
+    {
+        "UUIDProducto": "4028",
+        "Descripcion": "RUFO ADULTO",
+        "Contenido1": "12X454GR FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:34:57"
+    },
+    {
+        "UUIDProducto": "5224",
+        "Descripcion": "RUFO CACHORRO",
+        "Contenido1": "12X420GRS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:35:09"
+    },
+    {
+        "UUIDProducto": "138",
+        "Descripcion": "ACEITE ORISOL BOLSA",
+        "Contenido1": "20X700MLCAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:37:36"
+    }
+]

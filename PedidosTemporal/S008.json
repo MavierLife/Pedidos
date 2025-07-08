@@ -1,0 +1,47 @@
+[
+    {
+        "UUIDProducto": "6115",
+        "Descripcion": "MARGARINA ORISOL CLASICA",
+        "Contenido1": "24X400GRS CAJA",
+        "Fardo": "0",
+        "Unidades": "15",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:57:21"
+    },
+    {
+        "UUIDProducto": "3200",
+        "Descripcion": "ACEITE LA PALMA",
+        "Contenido1": "12X1,875ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:57:42"
+    },
+    {
+        "UUIDProducto": "1310",
+        "Descripcion": "PALILLO MELHER",
+        "Contenido1": "36X140 CAJA",
+        "Fardo": "0",
+        "Unidades": "10",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:57:57"
+    },
+    {
+        "UUIDProducto": "4550",
+        "Descripcion": "GALLETA CLUB MAX",
+        "Contenido1": "24X9U CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:58:20"
+    },
+    {
+        "UUIDProducto": "6227",
+        "Descripcion": "GALLETA MARGARITA LIDO",
+        "Contenido1": "16X6U CAJA",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:58:30"
+    }
+]

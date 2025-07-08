@@ -1,0 +1,2 @@
+"Iniciales","FechaIngreso","IdImportacion","producto","Solicitado"
+"S008","16/06/2025 14:14:04","1299","VELADORA BARRILITO 1X60U CAJA","1 | 0"

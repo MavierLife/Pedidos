@@ -1,0 +1,2 @@
+"Iniciales","FechaIngreso","IdImportacion","producto","Solicitado"
+"S001","10/06/2025 00:18:11","6194","MATA RATA C-REAL B 40X50GRS CAJA","0 | 10"

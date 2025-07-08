@@ -1,0 +1,4 @@
+"Iniciales","FechaIngreso","IdImportacion","producto","Solicitado"
+"S009","16/06/2025 13:37:54","2108","VENADO LIGHT 6X1750ML CAJA","3 | 0"
+"S009","16/06/2025 13:38:00","2109","VENADO LIGHT 12X1000ML CAJA","2 | 0"
+"S009","16/06/2025 13:38:07","2111","VENADO LIGHT 12X750ML CAJA","2 | 0"

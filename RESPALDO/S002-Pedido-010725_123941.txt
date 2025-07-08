@@ -1,0 +1,4 @@
+"Iniciales","FechaIngreso","IdImportacion","producto","Solicitado"
+"S002","30/06/2025 20:24:35","2336","MENTITAS 24X27GRS DISPEN","0 | 4"
+"S002","30/06/2025 20:25:56","1710","CLORETS VERDE 32X60U FARDO","0 | 6"
+"S002","30/06/2025 20:26:07","1711","CLORETS FRESHMINT 32X60U FARDO","0 | 4"

@@ -318,6 +318,21 @@ $result = $conn->query($sql);
             background-color: #4cae4c;
         }
 
+        /* Estilo para el botón CÓDIGO */
+        .codigo-btn {
+            padding: 6px 12px;
+            background-color: #6c757d; /* Color gris */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .codigo-btn:hover {
+            background-color: #5a6268;
+        }
+
         /* Estilos para el botón de cerrar (X) en el modal de Ver Pedido */
         #verPedidoModal .modal-header .close-ver-pedido {
             color: #aaa;
@@ -358,6 +373,21 @@ $result = $conn->query($sql);
             overflow-y: auto;  /* Scroll vertical si el contenido excede la altura */
         }
 
+        /* Estilos para el botón de eliminar en el modal de ver pedido */
+        .btn-eliminar {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8em;
+        }
+        
+        .btn-eliminar:hover {
+            background-color: #c82333;
+        }
+
     </style>
 </head>
 <body>
@@ -365,6 +395,9 @@ $result = $conn->query($sql);
         <h1>Generar Pedido Sucursal</h1>
         <p>Sucursal: <?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?>
             <button type="button" id="verPedidoBtn" class="action-btn" style="margin-bottom: 20px;">Ver Pedido Actual</button>
+        </p>
+        <p>
+            <button type="button" id="codigoBtn" class="codigo-btn">CÓDIGO</button>
         </p>
 
         <div class="search-container">
@@ -388,7 +421,7 @@ $result = $conn->query($sql);
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo htmlspecialchars($row['UUIDProducto']); ?></td>
-                            <td><?php echo htmlspecialchars($row['Descripcion']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Descripcion'] . " - " . $row['Contenido1']); ?></td>
                             <td>
                                 <button class="add-btn" onclick="openModal(
                                     '<?php echo htmlspecialchars(addslashes($row['Descripcion'])); ?>',
@@ -562,6 +595,14 @@ $result = $conn->query($sql);
             });
         }
 
+        // Botón CÓDIGO
+        const codigoBtn = document.getElementById("codigoBtn");
+        if (codigoBtn) {
+            codigoBtn.onclick = function() {
+                window.open('http://26.123.15.44/GENERAR/', '_blank');
+            }
+        }
+
         // Modal para Ver Pedido
         const verPedidoModal = document.getElementById("verPedidoModal");
         const verPedidoBtn = document.getElementById("verPedidoBtn");
@@ -571,32 +612,94 @@ $result = $conn->query($sql);
         if (verPedidoBtn) {
             verPedidoBtn.onclick = function() {
                 verPedidoModalBody.innerHTML = '<p>Cargando pedidos...</p>';
-                fetch('cargar_pedido.php')
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success && data.pedidos && data.pedidos.length > 0) {
-                            let tableHtml = '<div class="scrollable-table"><table><thead><tr><th>Descripción</th><th>Fardo</th><th>Unidades</th></tr></thead><tbody>';
-                            data.pedidos.forEach(pedido => {
-                                tableHtml += `<tr>
-                                    <td>${pedido.Descripcion || ''}</td>
-                                    <td>${pedido.Fardo || '0'}</td>
-                                    <td>${pedido.Unidades || '0'}</td>
-                                 </tr>`;
-                            });
-                            tableHtml += '</tbody></table></div>';
-                            verPedidoModalBody.innerHTML = tableHtml;
-                        } else if (data.success && data.pedidos && data.pedidos.length === 0) {
-                            verPedidoModalBody.innerHTML = '<p>No hay pedidos registrados para esta sucursal.</p>';
-                        } else {
-                            verPedidoModalBody.innerHTML = `<p>Error al cargar pedidos: ${data.message || 'Error desconocido.'}</p>`;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error al cargar pedidos:', error);
-                        verPedidoModalBody.innerHTML = '<p>Ocurrió un error al cargar los pedidos.</p>';
-                    });
+                cargarPedidos();
                 verPedidoModal.style.display = "block";
             }
+        }
+
+        // Función para cargar pedidos
+        function cargarPedidos() {
+            fetch('cargar_pedido.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.pedidos && data.pedidos.length > 0) {
+                        let tableHtml = '<div class="scrollable-table"><table><thead><tr><th>Descripción</th><th>Fardo</th><th>Unidades</th><th>Acción</th></tr></thead><tbody>';
+                        data.pedidos.forEach(pedido => {
+                            tableHtml += `<tr>
+                                <td>${pedido.Descripcion || ''}</td>
+                                <td>${pedido.Fardo || '0'}</td>
+                                <td>${pedido.Unidades || '0'}</td>
+                                <td><button class="btn-eliminar" onclick="eliminarProducto('${pedido.UUIDProducto}', '${(pedido.Descripcion || '').replace(/'/g, "\\'")}')">Eliminar</button></td>
+                             </tr>`;
+                        });
+                        tableHtml += '</tbody></table></div>';
+                        verPedidoModalBody.innerHTML = tableHtml;
+                    } else if (data.success && data.pedidos && data.pedidos.length === 0) {
+                        verPedidoModalBody.innerHTML = '<p>No hay pedidos registrados para esta sucursal.</p>';
+                    } else {
+                        verPedidoModalBody.innerHTML = `<p>Error al cargar pedidos: ${data.message || 'Error desconocido.'}</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar pedidos:', error);
+                    verPedidoModalBody.innerHTML = '<p>Ocurrió un error al cargar los pedidos.</p>';
+                });
+        }
+
+        // Función para eliminar producto del pedido
+        function eliminarProducto(uuidProducto, descripcionProducto) {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: `¿Deseas eliminar "${descripcionProducto}" del pedido?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('eliminar.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            UUIDProducto: uuidProducto
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire({
+                                title: '¡Eliminado!',
+                                text: 'El producto ha sido eliminado del pedido.',
+                                icon: 'success',
+                                timer: 1500,
+                                showConfirmButton: false
+                            });
+                            // Recargar la lista de pedidos
+                            cargarPedidos();
+                        } else {
+                            Swal.fire({
+                                title: 'Error',
+                                text: 'Error al eliminar el producto: ' + data.message,
+                                icon: 'error',
+                                confirmButtonText: 'Aceptar'
+                            });
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Ocurrió un error al procesar la solicitud.',
+                            icon: 'error',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    });
+                }
+            });
         }
 
         closeVerPedidoElements.forEach(element => {

@@ -1,3 +1,0 @@
-"Iniciales","FechaIngreso","IdImportacion","producto","Solicitado"
-"S008","06/06/2025 16:49:11","7404","SOMBRILLA PARA INFANTIL 1X6 CAJA","0 | 5"
-"S008","06/06/2025 16:49:35","3297","AZUCAR 2.5KG 20X2.5KG QUINTAL","10 | 0"

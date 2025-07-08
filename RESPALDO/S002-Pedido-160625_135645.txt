@@ -1,0 +1,2 @@
+"Iniciales","FechaIngreso","IdImportacion","producto","Solicitado"
+"S002","16/06/2025 13:51:50","4591","BEB AGUA AQUA 12X750ML FARDO","4 | 0"

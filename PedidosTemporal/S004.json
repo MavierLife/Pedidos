@@ -1,0 +1,173 @@
+[
+    {
+        "UUIDProducto": "7259",
+        "Descripcion": "DESCAR TAZON SUPER FOAM",
+        "Contenido1": "20X25U FARDO",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:08:13"
+    },
+    {
+        "UUIDProducto": "1669",
+        "Descripcion": "DESCAR TAZON SOPERO DIPSA",
+        "Contenido1": "10X25U CAJA",
+        "Fardo": "0",
+        "Unidades": "3",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:08:19"
+    },
+    {
+        "UUIDProducto": "5982",
+        "Descripcion": "CAFE RIKO DISPEN",
+        "Contenido1": "24X24X2GR FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:43:00"
+    },
+    {
+        "UUIDProducto": "5573",
+        "Descripcion": "AVIS AVES ENGORDE FIN",
+        "Contenido1": "40X2.5LBS SACO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:48:45"
+    },
+    {
+        "UUIDProducto": "1972",
+        "Descripcion": "BAYGON PODER MORTAL",
+        "Contenido1": "12X400ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:48:59"
+    },
+    {
+        "UUIDProducto": "4041",
+        "Descripcion": "HIGIENICO SCOTT RINDEMAX",
+        "Contenido1": "4X12U FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:49:30"
+    },
+    {
+        "UUIDProducto": "4368",
+        "Descripcion": "HIGIENICO SCOTT CUIDADO COMPLETO",
+        "Contenido1": "4X12U FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:49:42"
+    },
+    {
+        "UUIDProducto": "6068",
+        "Descripcion": "HIGIENICO SCOTT RINDEMAX",
+        "Contenido1": "2X18U FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:49:52"
+    },
+    {
+        "UUIDProducto": "7008",
+        "Descripcion": "HIGIENICO SCOTT CUIDADO COMPLETO",
+        "Contenido1": "2X32U FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:50:09"
+    },
+    {
+        "UUIDProducto": "7429",
+        "Descripcion": "HIGIENICO SCOTT ESENCIAS ELEGANCE",
+        "Contenido1": "30X32U TARIMA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:50:25"
+    },
+    {
+        "UUIDProducto": "2659",
+        "Descripcion": "CLEMENTE VINAGRE BLANCO",
+        "Contenido1": "24X500ML CAJA",
+        "Fardo": "0",
+        "Unidades": "10",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 18:25:51"
+    },
+    {
+        "UUIDProducto": "6951",
+        "Descripcion": "TOALLAS HUMEDAS JAPPYKLUB",
+        "Contenido1": "12X80U CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 20:48:55"
+    },
+    {
+        "UUIDProducto": "339",
+        "Descripcion": "SUAVIZ SUAVITEL SH PRIMAVERAL",
+        "Contenido1": "6X12X80ML CAJA",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 20:51:00"
+    },
+    {
+        "UUIDProducto": "5953",
+        "Descripcion": "NUTELLA",
+        "Contenido1": "12X200GRS CAJA",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 20:51:28"
+    },
+    {
+        "UUIDProducto": "5954",
+        "Descripcion": "NUTELLA GO",
+        "Contenido1": "12X200GRS CAJA",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 20:51:33"
+    },
+    {
+        "UUIDProducto": "2314",
+        "Descripcion": "GALLETA MOLI FRESA",
+        "Contenido1": "18X12U CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:10:40"
+    },
+    {
+        "UUIDProducto": "2315",
+        "Descripcion": "GALLETA MOLI VAINILLA",
+        "Contenido1": "18X12U CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:10:46"
+    },
+    {
+        "UUIDProducto": "388",
+        "Descripcion": "GALLETA CHIKY\/CHOCOLATE",
+        "Contenido1": "16X12U CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:11:04"
+    },
+    {
+        "UUIDProducto": "5147",
+        "Descripcion": "GALLETA POZUELO CLUB EXTRA",
+        "Contenido1": "24X9X225GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 21:11:31"
+    }
+]

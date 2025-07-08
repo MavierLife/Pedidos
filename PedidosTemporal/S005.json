@@ -1,0 +1,155 @@
+[
+    {
+        "UUIDProducto": "5806",
+        "Descripcion": "HARINA MAIZ ORO MAYA",
+        "Contenido1": "9X800GRS FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 13:07:44"
+    },
+    {
+        "UUIDProducto": "5455",
+        "Descripcion": "HARINA ARROZ AS DE ORO",
+        "Contenido1": "10X2LBS FARDO",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "unidades",
+        "FechaHoraRegistro": "2025-07-08 13:08:04"
+    },
+    {
+        "UUIDProducto": "6759",
+        "Descripcion": "HARINA MAIZ DOÑA BLANCA EX\/SU",
+        "Contenido1": "5X1634GRS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 13:08:17"
+    },
+    {
+        "UUIDProducto": "80",
+        "Descripcion": "HARINA MAIZ MASECA EX\/SU",
+        "Contenido1": "10X2LBS FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 13:08:45"
+    },
+    {
+        "UUIDProducto": "7004",
+        "Descripcion": "HARINA MAIZ MASASUAVE",
+        "Contenido1": "10X2LBS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 13:09:33"
+    },
+    {
+        "UUIDProducto": "955",
+        "Descripcion": "SALSA INGLESA DEL CHEF",
+        "Contenido1": "24X148ML CAJA",
+        "Fardo": "0",
+        "Unidades": "5",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 13:13:52"
+    },
+    {
+        "UUIDProducto": "6083",
+        "Descripcion": "HARINA MAIZ DOÑA BLANCA EX\/SU",
+        "Contenido1": "10X820GRS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 13:21:09"
+    },
+    {
+        "UUIDProducto": "4669",
+        "Descripcion": "TARJETA DIGICEL $1.00",
+        "Contenido1": "25X1.00 TIRA",
+        "Fardo": "0",
+        "Unidades": "25",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 14:27:46"
+    },
+    {
+        "UUIDProducto": "419",
+        "Descripcion": "POLIPEL BIOPES GRUESO",
+        "Contenido1": "32X500U FARDO",
+        "Fardo": "0",
+        "Unidades": "8",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:49:53"
+    },
+    {
+        "UUIDProducto": "833",
+        "Descripcion": "LECHE POLVO PINITO",
+        "Contenido1": "24X350GRS CAJA",
+        "Fardo": "0",
+        "Unidades": "8",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:58:11"
+    },
+    {
+        "UUIDProducto": "2093",
+        "Descripcion": "VODKA TROIKA LIGHT",
+        "Contenido1": "12X750ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 17:48:55"
+    },
+    {
+        "UUIDProducto": "2095",
+        "Descripcion": "VODKA TROIKA LIGHT",
+        "Contenido1": "12X1000ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 17:49:11"
+    },
+    {
+        "UUIDProducto": "6583",
+        "Descripcion": "LECHE NUTRILAK DESCRE UHT",
+        "Contenido1": "12X1000ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 17:59:31"
+    },
+    {
+        "UUIDProducto": "3277",
+        "Descripcion": "LECHE SALUD ENTERA UHT",
+        "Contenido1": "12X1000ML CAJA",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 17:59:47"
+    },
+    {
+        "UUIDProducto": "6059",
+        "Descripcion": "LECHE AUSTRALIAN ENTERA UHT",
+        "Contenido1": "12X1000ML CAJA",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 18:00:06"
+    },
+    {
+        "UUIDProducto": "2099",
+        "Descripcion": "TROIKA SECO",
+        "Contenido1": "12X1000ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 18:00:37"
+    },
+    {
+        "UUIDProducto": "2100",
+        "Descripcion": "TROIKA SECO",
+        "Contenido1": "12X750ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 18:00:46"
+    }
+]

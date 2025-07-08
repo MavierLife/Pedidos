@@ -1,0 +1,2 @@
+"Iniciales","FechaIngreso","IdImportacion","producto","Solicitado"
+"S003","16/06/2025 13:14:40","6061","SUERO CASCADA FRESA KIWI 12X500ML CAJA","3 | 0"

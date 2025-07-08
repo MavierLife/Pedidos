@@ -1,0 +1,542 @@
+[
+    {
+        "UUIDProducto": "4698",
+        "Descripcion": "LECHE AUSTRALIAN",
+        "Contenido1": "24X350GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:01:54"
+    },
+    {
+        "UUIDProducto": "4933",
+        "Descripcion": "NIDO ESENCIAL",
+        "Contenido1": "24X460GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:09:01"
+    },
+    {
+        "UUIDProducto": "1376",
+        "Descripcion": "LECHE NIDO PROTECCION 1+",
+        "Contenido1": "24X325GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:09:23"
+    },
+    {
+        "UUIDProducto": "5374",
+        "Descripcion": "LECHE NIDO DESARROLLO 3+",
+        "Contenido1": "24X360GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:09:30"
+    },
+    {
+        "UUIDProducto": "6263",
+        "Descripcion": "DELISOY VAINILLA ALMENDRAS UHT",
+        "Contenido1": "12X1000ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:09:49"
+    },
+    {
+        "UUIDProducto": "966",
+        "Descripcion": "DELISOY NATURAL",
+        "Contenido1": "24X360GRS CAJA",
+        "Fardo": "0",
+        "Unidades": "10",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:11:36"
+    },
+    {
+        "UUIDProducto": "967",
+        "Descripcion": "DELISOY FRESA",
+        "Contenido1": "24X360GRS CAJA",
+        "Fardo": "0",
+        "Unidades": "10",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:11:41"
+    },
+    {
+        "UUIDProducto": "378",
+        "Descripcion": "AVENA QUAKER OJUELA",
+        "Contenido1": "25X350GRS FARDO",
+        "Fardo": "0",
+        "Unidades": "15",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:12:38"
+    },
+    {
+        "UUIDProducto": "4889",
+        "Descripcion": "AVENA DOÑA BLANCA",
+        "Contenido1": "30X350GRS FARDO",
+        "Fardo": "0",
+        "Unidades": "5",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:12:56"
+    },
+    {
+        "UUIDProducto": "5133",
+        "Descripcion": "AVENA QUAKER VASO BANANO",
+        "Contenido1": "36X1.4.ONZ CAJA",
+        "Fardo": "0",
+        "Unidades": "4",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:13:34"
+    },
+    {
+        "UUIDProducto": "5134",
+        "Descripcion": "AVENA QUAKER VASO FRESA",
+        "Contenido1": "36X1.4.ONZ CAJA",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:13:38"
+    },
+    {
+        "UUIDProducto": "7349",
+        "Descripcion": "LECHE MEMBER´S SELECTION DESCREMADA 0%",
+        "Contenido1": "12X1000ML CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:14:10"
+    },
+    {
+        "UUIDProducto": "5375",
+        "Descripcion": "CAFE CLASICO DISPEN",
+        "Contenido1": "15X40X1.8GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:14:34"
+    },
+    {
+        "UUIDProducto": "4471",
+        "Descripcion": "CAFE CLASICO DISPEN",
+        "Contenido1": "30X20U CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:14:43"
+    },
+    {
+        "UUIDProducto": "5982",
+        "Descripcion": "CAFE RIKO DISPEN",
+        "Contenido1": "24X24X2GR FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:15:13"
+    },
+    {
+        "UUIDProducto": "442",
+        "Descripcion": "CAFE RIKO DISPEN",
+        "Contenido1": "24X50X2GR FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:15:19"
+    },
+    {
+        "UUIDProducto": "5070",
+        "Descripcion": "CAFE OLLA DISPEN",
+        "Contenido1": "10X50X1.8GRS FARDO",
+        "Fardo": "10",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:17:07"
+    },
+    {
+        "UUIDProducto": "458",
+        "Descripcion": "CAFE COSCAFE DISPEN",
+        "Contenido1": "30X40X2GRS FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:17:23"
+    },
+    {
+        "UUIDProducto": "7212",
+        "Descripcion": "CAFE COSCAFE DISPEN",
+        "Contenido1": "24X50X2GRS FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:17:29"
+    },
+    {
+        "UUIDProducto": "1408",
+        "Descripcion": "CREMORA BORDEN",
+        "Contenido1": "12X11.ONZ CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:17:56"
+    },
+    {
+        "UUIDProducto": "2419",
+        "Descripcion": "BEB PETIT MINI",
+        "Contenido1": "4X6U CAJA",
+        "Fardo": "5",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:18:20"
+    },
+    {
+        "UUIDProducto": "5900",
+        "Descripcion": "SARITA SHAKE",
+        "Contenido1": "4X6 CAJA",
+        "Fardo": "4",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:18:40"
+    },
+    {
+        "UUIDProducto": "7160",
+        "Descripcion": "CREMORA COFFEE MATE",
+        "Contenido1": "12X160GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:18:48"
+    },
+    {
+        "UUIDProducto": "2556",
+        "Descripcion": "BEB DUCAL MINI",
+        "Contenido1": "4X6 CAJA",
+        "Fardo": "5",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:18:57"
+    },
+    {
+        "UUIDProducto": "1400",
+        "Descripcion": "BEB RED BULL",
+        "Contenido1": "24X250ML FARDO",
+        "Fardo": "4",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:19:10"
+    },
+    {
+        "UUIDProducto": "2379",
+        "Descripcion": "BEB MONSTER ENERGY",
+        "Contenido1": "24X473ML FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:19:23"
+    },
+    {
+        "UUIDProducto": "4363",
+        "Descripcion": "BEB MONSTER MANGO",
+        "Contenido1": "24X473ML FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:19:28"
+    },
+    {
+        "UUIDProducto": "1386",
+        "Descripcion": "CAFE CATADOR KRAF",
+        "Contenido1": "1X60 FARDO",
+        "Fardo": "0",
+        "Unidades": "15",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:19:34"
+    },
+    {
+        "UUIDProducto": "5613",
+        "Descripcion": "CAFE GRANO REAL",
+        "Contenido1": "10X420GRS FARDO",
+        "Fardo": "0",
+        "Unidades": "20",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:19:53"
+    },
+    {
+        "UUIDProducto": "1635",
+        "Descripcion": "GALLETA LIDO ZOOLOGICA",
+        "Contenido1": "24X12U CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:20:12"
+    },
+    {
+        "UUIDProducto": "2122",
+        "Descripcion": "GALLETA LIDO SUPER CREMOSA",
+        "Contenido1": "16X12U CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:20:31"
+    },
+    {
+        "UUIDProducto": "2123",
+        "Descripcion": "GALLETA LIDO TORTI TRIGO",
+        "Contenido1": "18X12 CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:20:48"
+    },
+    {
+        "UUIDProducto": "8",
+        "Descripcion": "MAIZENA U NATURAL",
+        "Contenido1": "20X20U CAJA",
+        "Fardo": "0",
+        "Unidades": "60",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:21:47"
+    },
+    {
+        "UUIDProducto": "86",
+        "Descripcion": "MAIZENA U FRESA",
+        "Contenido1": "16X12U FARDO",
+        "Fardo": "0",
+        "Unidades": "36",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:22:26"
+    },
+    {
+        "UUIDProducto": "9",
+        "Descripcion": "MAIZENA U BANANO",
+        "Contenido1": "16X12U FARDO",
+        "Fardo": "0",
+        "Unidades": "36",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:22:36"
+    },
+    {
+        "UUIDProducto": "6061",
+        "Descripcion": "SUERO CASCADA FRESA KIWI",
+        "Contenido1": "12X500ML CAJA",
+        "Fardo": "10",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:23:43"
+    },
+    {
+        "UUIDProducto": "3779",
+        "Descripcion": "LECHE RIO INSTANTANEA",
+        "Contenido1": "24X350GRS CAJA",
+        "Fardo": "0",
+        "Unidades": "10",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 15:25:44"
+    },
+    {
+        "UUIDProducto": "6440",
+        "Descripcion": "TERMO ATLAS 1 LBS",
+        "Contenido1": "200X100 FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:56:59"
+    },
+    {
+        "UUIDProducto": "6443",
+        "Descripcion": "TERMO ATLAS 3 LBS",
+        "Contenido1": "120X100U FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:57:18"
+    },
+    {
+        "UUIDProducto": "366",
+        "Descripcion": "ACEITE MAZOLA",
+        "Contenido1": "6X1GALON CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:58:06"
+    },
+    {
+        "UUIDProducto": "1509",
+        "Descripcion": "MAYONESA DEL CHEF BOLSA",
+        "Contenido1": "15X350GRS CAJA",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:59:03"
+    },
+    {
+        "UUIDProducto": "6217",
+        "Descripcion": "MAXI CHUCHITO CACHORRO",
+        "Contenido1": "10X1LBS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 16:59:43"
+    },
+    {
+        "UUIDProducto": "4844",
+        "Descripcion": "DON FINO PAVO",
+        "Contenido1": "12X1LBS FARDO",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 17:00:00"
+    },
+    {
+        "UUIDProducto": "5225",
+        "Descripcion": "ALIMIAU",
+        "Contenido1": "12X454GRS FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 17:00:14"
+    },
+    {
+        "UUIDProducto": "7107",
+        "Descripcion": "ALIMIAU MAR Y TIERRA",
+        "Contenido1": "12X420GRS FARDO",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 17:00:19"
+    },
+    {
+        "UUIDProducto": "876",
+        "Descripcion": "BEB SALVA COLA",
+        "Contenido1": "24X12.ONZAS FARDO",
+        "Fardo": "8",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 18:56:15"
+    },
+    {
+        "UUIDProducto": "880",
+        "Descripcion": "BEB SALVA COLA",
+        "Contenido1": "12X1.25 LTS FARDO",
+        "Fardo": "5",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 18:56:23"
+    },
+    {
+        "UUIDProducto": "887",
+        "Descripcion": "BEB SALVA COLA",
+        "Contenido1": "6X3LTS FARDO",
+        "Fardo": "6",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 18:56:30"
+    },
+    {
+        "UUIDProducto": "4697",
+        "Descripcion": "LECHE CONDE\/TERRA MONTE",
+        "Contenido1": "48X397GRS CAJA",
+        "Fardo": "10",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:47:00"
+    },
+    {
+        "UUIDProducto": "1059",
+        "Descripcion": "COLADO HEINZ VIDRIO MANZANA",
+        "Contenido1": "24X113GRS FARDO",
+        "Fardo": "6",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:47:21"
+    },
+    {
+        "UUIDProducto": "1061",
+        "Descripcion": "COLADO HEINZ VIDRIO BANANA",
+        "Contenido1": "24X113GRS FARDO",
+        "Fardo": "6",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:47:32"
+    },
+    {
+        "UUIDProducto": "1060",
+        "Descripcion": "COLADO HEINZ VIDRIO MELOCOTON",
+        "Contenido1": "24X113GRS FARDO",
+        "Fardo": "6",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:47:39"
+    },
+    {
+        "UUIDProducto": "1933",
+        "Descripcion": "COLADO HEINZ FLEX MELOCOTON",
+        "Contenido1": "24X105GRS CAJA",
+        "Fardo": "5",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:48:02"
+    },
+    {
+        "UUIDProducto": "1932",
+        "Descripcion": "COLADO HEINZ FLEX MANZANA",
+        "Contenido1": "24X105GRS CAJA",
+        "Fardo": "3",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:48:12"
+    },
+    {
+        "UUIDProducto": "2759",
+        "Descripcion": "COLADO HEINZ FLEX BANANO",
+        "Contenido1": "24X105GRS CAJA",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:48:51"
+    },
+    {
+        "UUIDProducto": "3802",
+        "Descripcion": "COLADO HEINZ VIDRIO PERA",
+        "Contenido1": "24X113GRS FARDO",
+        "Fardo": "3",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:49:00"
+    },
+    {
+        "UUIDProducto": "1931",
+        "Descripcion": "COLADO HEINZ FLEX PERA",
+        "Contenido1": "24X105GRS CAJA",
+        "Fardo": "2",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 19:49:06"
+    },
+    {
+        "UUIDProducto": "5752",
+        "Descripcion": "JAB KLINPIAX LIMON",
+        "Contenido1": "12X1000GRS CAJA",
+        "Fardo": "3",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 20:35:42"
+    },
+    {
+        "UUIDProducto": "6455",
+        "Descripcion": "JAB KLINPIAX FRUTOS ROJOS",
+        "Contenido1": "12X1000GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 20:35:47"
+    },
+    {
+        "UUIDProducto": "6567",
+        "Descripcion": "JAB KLINPIAX AVENA",
+        "Contenido1": "12X1000GRS CAJA",
+        "Fardo": "1",
+        "Unidades": "0",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-07-08 20:35:51"
+    }
+]
