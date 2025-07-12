@@ -165,7 +165,11 @@ if (isset($_SESSION['dashboard_message'])) {
     } elseif (empty($jsonFiles)) { // No hay archivos JSON en absoluto
         $mensajeGlobal = ['type' => 'info', 'text' => 'No se encontraron archivos de pedidos (.json) en ' . basename($pedidosTemporalDir) . '. Lista actualizada.'];
     } else { // Hay archivos JSON, pero todos están vacíos o son inválidos
-        $mensajeGlobal = ['type' => 'info', 'text' => 'No se encontraron pedidos válidos en los archivos JSON. Lista actualizada.'];
+        $mensajeGlobal = [
+            'type' => 'warning', 
+            'text' => 'No se encontraron pedidos válidos en los archivos JSON. Todos los archivos están vacíos o no contienen datos de pedidos.',
+            'show_alert' => true
+        ];
     }
 } elseif (isset($_POST['limpiar_lista'])) {
     // Acción del botón "Limpiar Lista / Volver"
@@ -193,6 +197,7 @@ if (isset($_SESSION['dashboard_message'])) {
 <head>
     <meta charset="UTF-8">
     <title>Dashboard de Pedidos - Descarga Individual</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f4; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
         .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; max-width: 700px; width: 100%; margin-top: 20px; }
@@ -209,9 +214,28 @@ if (isset($_SESSION['dashboard_message'])) {
         .message.success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
         .message.error { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
         .message.info { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
+        .message.warning { background-color: #fff3cd; color: #856404; border-color: #ffeaa7; }
         ul.lista-tiendas { list-style-type: none; padding: 0; margin-top: 20px; }
         ul.lista-tiendas li { margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; padding: 10px; border: 1px solid #eee; border-radius: 4px; background-color: #f9f9f9; }
         ul.lista-tiendas li span { font-weight: bold; }
+        .btn-lacteo { 
+            background-color: #28a745 !important; 
+            color: white; 
+            font-weight: bold; 
+        }
+        .btn-lacteo:hover { 
+            background-color: #218838 !important; 
+        }
+        .seccion-lacteos { 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 2px solid #ddd; 
+            text-align: center; 
+        }
+        .seccion-lacteos h2 { 
+            color: #28a745; 
+            margin-bottom: 10px; 
+        }
     </style>
 </head>
 <body>
@@ -219,7 +243,7 @@ if (isset($_SESSION['dashboard_message'])) {
         <h1>Dashboard de Pedidos</h1>
         <h2>Descarga Individual de Archivos CSV</h2>
 
-        <?php if ($mensajeGlobal): ?>
+        <?php if ($mensajeGlobal && !isset($mensajeGlobal['show_alert'])): ?>
             <p class="message <?php echo htmlspecialchars($mensajeGlobal['type']); ?>"><?php echo nl2br(htmlspecialchars($mensajeGlobal['text'])); ?></p>
         <?php endif; ?>
 
@@ -246,7 +270,30 @@ if (isset($_SESSION['dashboard_message'])) {
             </form>
         <?php endif; ?>
         
+        <!-- Botón para descargar pedidos lácteos -->
+        <div class="seccion-lacteos">
+            <h2>Pedidos Lácteos</h2>
+            <p>Descargue un reporte completo con todos los pedidos lácteos y el total de unidades por tienda.</p>
+            <a href="descargar_pedido_lacteo.php" class="btn btn-lacteo" style="margin-bottom: 10px;">
+                📄 Descargar Pedido Lácteo (PDF)
+            </a>
+            <p style="font-size: 12px; color: #666;">El archivo incluye: listado por sucursal, totales y resumen general</p>
+        </div>
+        
         <a href="index.php" class="link-volver">Volver a la toma de pedidos</a>
     </div>
+
+    <script>
+        <?php if (isset($mensajeGlobal) && isset($mensajeGlobal['show_alert'])): ?>
+            // Mostrar SweetAlert para mensajes especiales
+            Swal.fire({
+                title: '<?php echo $mensajeGlobal['type'] === 'warning' ? '¡Atención!' : ($mensajeGlobal['type'] === 'error' ? '¡Error!' : 'Información'); ?>',
+                text: '<?php echo htmlspecialchars($mensajeGlobal['text']); ?>',
+                icon: '<?php echo $mensajeGlobal['type']; ?>',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#3085d6'
+            });
+        <?php endif; ?>
+    </script>
 </body>
 </html>

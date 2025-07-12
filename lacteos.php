@@ -28,14 +28,16 @@ $offset = ($pagina_actual - 1) * $productos_por_pagina;
 
 $termino_busqueda = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
 
-// Construir la consulta SQL
+// Construir la consulta SQL para productos lácteos específicos
 $sql_base = "FROM tblcatalogodeproductos";
-$sql_where = "";
+$sql_where = " WHERE (Descripcion LIKE '%QUESO DURO%' OR Descripcion LIKE '%QUESO SECO%' OR Descripcion LIKE '%QUESILLO%')";
+
+// Agregar búsqueda si existe
 if (!empty($termino_busqueda)) {
-    $sql_where = " WHERE Descripcion LIKE '%$termino_busqueda%' OR Contenido1 LIKE '%$termino_busqueda%' OR UUIDProducto LIKE '%$termino_busqueda%'";
+    $sql_where .= " AND (Descripcion LIKE '%$termino_busqueda%' OR Contenido1 LIKE '%$termino_busqueda%' OR UUIDProducto LIKE '%$termino_busqueda%')";
 }
 
-// Contar total de productos para la paginación (con filtro de búsqueda)
+// Contar total de productos para la paginación
 $sql_total = "SELECT COUNT(*) AS total " . $sql_base . $sql_where;
 $result_total = $conn->query($sql_total);
 $total_productos = $result_total->fetch_assoc()['total'];
@@ -51,7 +53,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
+    <title>Productos Lácteos</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
@@ -119,42 +121,42 @@ $result = $conn->query($sql);
         tr:hover {
             background-color: #f1f1f1;
         }
-        .logout-link {
+        .back-link {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 15px;
-            background-color: #dc3545;
+            background-color: #6c757d;
             color: white;
             text-decoration: none;
             border-radius: 5px;
         }
-        .logout-link:hover {
-            background-color: #c82333;
+        .back-link:hover {
+            background-color: #5a6268;
         }
         
-        /* Estilos de Paginación Actualizados */
+        /* Estilos de Paginación */
         .pagination {
-            margin-top: 30px; /* Un poco más de margen superior */
+            margin-top: 30px;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Permite que los botones se envuelvan a la siguiente línea */
-            gap: 8px; /* Espacio entre los botones de paginación */
+            flex-wrap: wrap;
+            gap: 8px;
             padding: 0;
-            list-style: none; /* Si se usaran <li>, esto sería útil */
+            list-style: none;
         }
 
         .pagination a, .pagination span {
             display: inline-block;
-            padding: 10px 15px; /* Mantenemos el padding original que es generoso */
-            font-size: 0.95rem; /* Ligeramente más pequeño para acomodar más números si es necesario */
+            padding: 10px 15px;
+            font-size: 0.95rem;
             font-weight: 500;
             color: #007bff;
             background-color: #fff;
-            border: 1px solid #dee2e6; /* Borde más suave */
-            border-radius: 0.25rem; /* Radio de borde estándar */
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
             text-decoration: none;
             transition: all 0.2s ease-in-out;
-            line-height: 1.5; /* Asegura buena altura de línea */
+            line-height: 1.5;
         }
 
         .pagination a:hover {
@@ -170,31 +172,31 @@ $result = $conn->query($sql);
             border-color: #007bff;
         }
         
-        .pagination .active:hover { /* Para que el hover del activo no cambie el color de fondo */
+        .pagination .active:hover {
             color: #fff;
-            background-color: #0069d9; /* Un azul ligeramente más oscuro en hover */
+            background-color: #0069d9;
             border-color: #0062cc;
         }
 
         .pagination .disabled {
             color: #6c757d;
             pointer-events: none;
-            background-color: #f8f9fa; /* Fondo ligeramente gris para deshabilitado */
+            background-color: #f8f9fa;
             border-color: #dee2e6;
         }
 
         /* Estilos para el Modal */
         .modal {
-            display: none; /* Oculto por defecto */
-            position: fixed; /* Se queda fijo en la pantalla */
-            z-index: 1; /* Se sitúa por encima de todo */
+            display: none;
+            position: fixed;
+            z-index: 1;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto; /* Habilita scroll si es necesario */
-            background-color: rgb(0,0,0); /* Color de fondo */
-            background-color: rgba(0,0,0,0.4); /* Negro con opacidad */
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
             padding-top: 60px;
         }
 
@@ -204,7 +206,7 @@ $result = $conn->query($sql);
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 400px; /* Ancho máximo del modal */
+            max-width: 400px;
             border-radius: 8px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         }
@@ -255,9 +257,8 @@ $result = $conn->query($sql);
         }
         
         .modal-body .input-group input[type="number"] {
-             width: calc(100% - 22px); /* Ajuste para padding y borde */
+             width: calc(100% - 22px);
         }
-
 
         .modal-footer {
             display: flex;
@@ -274,7 +275,7 @@ $result = $conn->query($sql);
         }
 
         .modal-footer .confirm-btn {
-            background-color: #28a745; /* Verde */
+            background-color: #28a745;
             color: white;
         }
         .modal-footer .confirm-btn:hover {
@@ -282,7 +283,7 @@ $result = $conn->query($sql);
         }
 
         .modal-footer .cancel-btn {
-            background-color: #dc3545; /* Rojo */
+            background-color: #dc3545;
             color: white;
         }
         .modal-footer .cancel-btn:hover {
@@ -291,7 +292,7 @@ $result = $conn->query($sql);
 
         .add-btn {
             padding: 8px 12px;
-            background-color: #17a2b8; /* Azul claro/info */
+            background-color: #17a2b8;
             color: white;
             border: none;
             border-radius: 4px;
@@ -302,113 +303,32 @@ $result = $conn->query($sql);
             background-color: #138496;
         }
 
-        /* Estilo para el botón Ver Pedido */
-        .action-btn {
-            padding: 10px 15px;
-            background-color: #5cb85c; /* Un color verde para "Ver Pedido" */
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            margin-left: 10px; 
-        }
-
-        .action-btn:hover {
-            background-color: #4cae4c;
-        }
-
-        /* Estilo para el botón CÓDIGO */
-        .codigo-btn {
-            padding: 6px 12px;
-            background-color: #6c757d; /* Color gris */
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
-        }
-
-        .codigo-btn:hover {
-            background-color: #5a6268;
-        }
-
-        /* Estilos para el botón de cerrar (X) en el modal de Ver Pedido */
-        #verPedidoModal .modal-header .close-ver-pedido {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            line-height: 1;
-        }
-
-        #verPedidoModal .modal-header .close-ver-pedido:hover,
-        #verPedidoModal .modal-header .close-ver-pedido:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Estilos para la tabla dentro del modal de ver pedido */
-        #verPedidoModalBody table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        #verPedidoModalBody th, #verPedidoModalBody td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            font-size: 0.9em;
-        }
-
-        #verPedidoModalBody th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-            color: #333; /* Asegura que el texto sea oscuro para buen contraste */
-        }
-        #verPedidoModalBody .scrollable-table {
-            max-height: 400px; /* Altura máxima antes de mostrar scroll */
-            overflow-y: auto;  /* Scroll vertical si el contenido excede la altura */
-        }
-
-        /* Estilos para el botón de eliminar en el modal de ver pedido */
-        .btn-eliminar {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 4px 8px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 0.8em;
-        }
-        
-        .btn-eliminar:hover {
-            background-color: #c82333;
+        .lacteos-header {
+            background-color: #e8f5e8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #28a745;
         }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Generar Pedido Sucursal</h1>
-        <p>Sucursal: <?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?>
-            <button type="button" id="verPedidoBtn" class="action-btn" style="margin-bottom: 20px;">Ver Pedido Actual</button>
-        </p>
-        <p>
-            <button type="button" id="codigoBtn" class="codigo-btn">CÓDIGO</button>
-            <button type="button" id="lacteosBtn" class="codigo-btn">LACTEOS</button>
-        </p>
+        <div class="lacteos-header">
+            <h1>Productos Lácteos</h1>
+            <p>Sucursal: <?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?></p>
+            <p><strong>Productos disponibles:</strong> Queso Duro, Queso Seco, Quesillo</p>
+        </div>
 
         <div class="search-container">
-            <form action="index.php" method="GET">
-                <input type="text" name="search" placeholder="Buscar productos..." value="<?php echo htmlspecialchars($termino_busqueda); ?>">
+            <form action="lacteos.php" method="GET">
+                <input type="text" name="search" placeholder="Buscar productos lácteos..." value="<?php echo htmlspecialchars($termino_busqueda); ?>">
                 <button type="submit">Buscar</button>
             </form>
         </div>
         
-        <h2>Lista de Productos</h2>
+        <h2>Lista de Productos Lácteos</h2>
         <?php if ($result && $result->num_rows > 0): ?>
             <table>
                 <thead>
@@ -437,7 +357,7 @@ $result = $conn->query($sql);
 
             <div class="pagination">
                 <?php
-                // Construir URL base para paginación, manteniendo el término de búsqueda si existe
+                // Construir URL base para paginación
                 $url_params = [];
                 if (!empty($termino_busqueda)) {
                     $url_params['search'] = $termino_busqueda;
@@ -464,17 +384,17 @@ $result = $conn->query($sql);
             </div>
 
         <?php else: ?>
-            <p>No se encontraron productos<?php if (!empty($termino_busqueda)) echo " para la búsqueda '" . htmlspecialchars($termino_busqueda) . "'"; ?>.</p>
+            <p>No se encontraron productos lácteos<?php if (!empty($termino_busqueda)) echo " para la búsqueda '" . htmlspecialchars($termino_busqueda) . "'"; ?>.</p>
         <?php endif; ?>
 
-        <p><a href="logout.php" class="logout-link">Cerrar Sesión</a></p>
+        <p><a href="index.php" class="back-link">← Volver al Inicio</a></p>
     </div>
 
-    <!-- El Modal para Agregar a Pedido -->
+    <!-- El Modal para Agregar a Pedido Lácteo -->
     <div id="pedidoModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Agregar a Pedido</h2>
+                <h2>Agregar a Pedido Lácteo</h2>
             </div>
             <div class="modal-body">
                 <p id="modalProductName" class="product-name"></p>
@@ -482,13 +402,9 @@ $result = $conn->query($sql);
                 <input type="hidden" id="modalProductUUID" name="modalProductUUID">
                 
                 <div class="input-group">
-                    <div>
-                        <label for="cajasFardos">CAJAS/FARDOS:</label>
-                        <input type="number" id="cajasFardos" name="cajasFardos" value="0" min="0">
-                    </div>
-                    <div>
+                    <div style="width: 100%;">
                         <label for="unidades">UNIDADES:</label>
-                        <input type="number" id="unidades" name="unidades" value="0" min="0">
+                        <input type="number" id="unidades" name="unidades" value="0" min="0" style="width: calc(100% - 22px);">
                     </div>
                 </div>
                 
@@ -496,30 +412,15 @@ $result = $conn->query($sql);
                 <textarea id="observaciones" name="observaciones" rows="3"></textarea>
             </div>
             <div class="modal-footer">
-                <button type="button" class="confirm-btn" onclick="confirmPedido()">&#10004;</button> <!-- Checkmark -->
-                <button type="button" class="cancel-btn" onclick="closeModal()">&#10006;</button> <!-- Cross -->
-            </div>
-        </div>
-    </div>
-
-    <!-- El Modal para Ver Pedido -->
-    <div id="verPedidoModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Mi Pedido Actual</h2>
-                <span class="close-ver-pedido">&times;</span>
-            </div>
-            <div class="modal-body" id="verPedidoModalBody">
-                <p>Cargando pedidos...</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="cancel-btn close-ver-pedido-footer">Cerrar</button>
+                <button type="button" class="confirm-btn" onclick="confirmPedido()">&#10004;</button>
+                <button type="button" class="cancel-btn" onclick="closeModal()">&#10006;</button>
             </div>
         </div>
     </div>
 
     <script>
         const uuidSucursalGlobal = '<?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?>';
+        
         // Modal para Agregar Producto
         var modal = document.getElementById("pedidoModal");
 
@@ -528,37 +429,46 @@ $result = $conn->query($sql);
             document.getElementById("modalProductName").textContent = descripcion;
             document.getElementById("modalProductContent").textContent = contenido1;
             document.getElementById("modalProductUUID").value = uuidProducto;
-            document.getElementById("cajasFardos").value = "0";
             document.getElementById("unidades").value = "0";
             document.getElementById("observaciones").value = "";
             modal.style.display = "block";
         }
 
-        // Función para cerrar el modal de agregar producto
+        // Función para cerrar el modal
         function closeModal() {
             modal.style.display = "none";
         }
 
-        // Función para confirmar el pedido (guardar)
+        // Función para confirmar el pedido lácteo
         function confirmPedido() {
             const uuidProducto = document.getElementById("modalProductUUID").value;
             const descripcion = document.getElementById("modalProductName").textContent;
             const contenido1 = document.getElementById("modalProductContent").textContent;
-            const cajasFardos = document.getElementById("cajasFardos").value;
             const unidades = document.getElementById("unidades").value;
             const observaciones = document.getElementById("observaciones").value;
+
+            // Validar que se haya ingresado al menos 1 unidad
+            if (unidades == '0' || unidades == '') {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Debe especificar al menos 1 unidad.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+                return;
+            }
 
             const pedidoData = {
                 UUIDProducto: uuidProducto,
                 Descripcion: descripcion,
                 Contenido1: contenido1,
-                Fardo: cajasFardos,
+                Fardo: '0',
                 Unidades: unidades,
                 Observaciones: observaciones,
                 UUIDSucursal: uuidSucursalGlobal
             };
 
-            fetch('guardar_pedido.php', {
+            fetch('guardar_pedido_lacteo.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -570,14 +480,14 @@ $result = $conn->query($sql);
                 if (data.success) {
                     Swal.fire({
                         title: '¡Guardado!',
-                        text: 'Pedido guardado exitosamente.',
+                        text: 'Pedido lácteo guardado exitosamente.',
                         icon: 'success',
                         confirmButtonText: 'Aceptar'
                     });
                 } else {
                     Swal.fire({
                         title: 'Error',
-                        text: 'Error al guardar el pedido: ' + data.message,
+                        text: 'Error al guardar el pedido lácteo: ' + data.message,
                         icon: 'error',
                         confirmButtonText: 'Aceptar'
                     });
@@ -596,135 +506,10 @@ $result = $conn->query($sql);
             });
         }
 
-        // Botón CÓDIGO
-        const codigoBtn = document.getElementById("codigoBtn");
-        if (codigoBtn) {
-            codigoBtn.onclick = function() {
-                window.open('http://26.123.15.44/GENERAR/', '_blank');
-            }
-        }
-
-        // Botón LACTEOS
-        const lacteosBtn = document.getElementById("lacteosBtn");
-        if (lacteosBtn) {
-            lacteosBtn.onclick = function() {
-                window.location.href = 'lacteos.php';
-            }
-        }
-
-        // Modal para Ver Pedido
-        const verPedidoModal = document.getElementById("verPedidoModal");
-        const verPedidoBtn = document.getElementById("verPedidoBtn");
-        const verPedidoModalBody = document.getElementById("verPedidoModalBody");
-        const closeVerPedidoElements = document.querySelectorAll(".close-ver-pedido, .close-ver-pedido-footer");
-
-        if (verPedidoBtn) {
-            verPedidoBtn.onclick = function() {
-                verPedidoModalBody.innerHTML = '<p>Cargando pedidos...</p>';
-                cargarPedidos();
-                verPedidoModal.style.display = "block";
-            }
-        }
-
-        // Función para cargar pedidos
-        function cargarPedidos() {
-            fetch('cargar_pedido.php')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success && data.pedidos && data.pedidos.length > 0) {
-                        let tableHtml = '<div class="scrollable-table"><table><thead><tr><th>Descripción</th><th>Fardo</th><th>Unidades</th><th>Acción</th></tr></thead><tbody>';
-                        data.pedidos.forEach(pedido => {
-                            tableHtml += `<tr>
-                                <td>${pedido.Descripcion || ''}</td>
-                                <td>${pedido.Fardo || '0'}</td>
-                                <td>${pedido.Unidades || '0'}</td>
-                                <td><button class="btn-eliminar" onclick="eliminarProducto('${pedido.UUIDProducto}', '${(pedido.Descripcion || '').replace(/'/g, "\\'")}')">Eliminar</button></td>
-                             </tr>`;
-                        });
-                        tableHtml += '</tbody></table></div>';
-                        verPedidoModalBody.innerHTML = tableHtml;
-                    } else if (data.success && data.pedidos && data.pedidos.length === 0) {
-                        verPedidoModalBody.innerHTML = '<p>No hay pedidos registrados para esta sucursal.</p>';
-                    } else {
-                        verPedidoModalBody.innerHTML = `<p>Error al cargar pedidos: ${data.message || 'Error desconocido.'}</p>`;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error al cargar pedidos:', error);
-                    verPedidoModalBody.innerHTML = '<p>Ocurrió un error al cargar los pedidos.</p>';
-                });
-        }
-
-        // Función para eliminar producto del pedido
-        function eliminarProducto(uuidProducto, descripcionProducto) {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: `¿Deseas eliminar "${descripcionProducto}" del pedido?`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#dc3545',
-                cancelButtonColor: '#6c757d',
-                confirmButtonText: 'Sí, eliminar',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    fetch('eliminar.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            UUIDProducto: uuidProducto
-                        }),
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            Swal.fire({
-                                title: '¡Eliminado!',
-                                text: 'El producto ha sido eliminado del pedido.',
-                                icon: 'success',
-                                timer: 1500,
-                                showConfirmButton: false
-                            });
-                            // Recargar la lista de pedidos
-                            cargarPedidos();
-                        } else {
-                            Swal.fire({
-                                title: 'Error',
-                                text: 'Error al eliminar el producto: ' + data.message,
-                                icon: 'error',
-                                confirmButtonText: 'Aceptar'
-                            });
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                        Swal.fire({
-                            title: 'Error',
-                            text: 'Ocurrió un error al procesar la solicitud.',
-                            icon: 'error',
-                            confirmButtonText: 'Aceptar'
-                        });
-                    });
-                }
-            });
-        }
-
-        closeVerPedidoElements.forEach(element => {
-            element.onclick = function() {
-                verPedidoModal.style.display = "none";
-            }
-        });
-
         // Cerrar el modal si el usuario hace clic fuera de él
         window.onclick = function(event) {
-            // Ya no cerramos el modal de agregar producto al hacer clic fuera
-            // if (event.target == modal) { 
-            //     closeModal();
-            // } else 
-            if (event.target == verPedidoModal) { // Modal de ver pedido sí se cierra
-                verPedidoModal.style.display = "none";
+            if (event.target == modal) {
+                closeModal();
             }
         }
     </script>
