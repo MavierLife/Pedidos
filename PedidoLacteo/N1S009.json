@@ -1,0 +1,65 @@
+[
+    {
+        "UUIDProducto": "3546",
+        "Descripcion": "QUESO SECO",
+        "Contenido1": "12X8.ONZ PAQUETE",
+        "Fardo": "0",
+        "Unidades": "10",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:36:46"
+    },
+    {
+        "UUIDProducto": "4229",
+        "Descripcion": "QUESO SECO",
+        "Contenido1": "12X4.ONZ PAQUETE",
+        "Fardo": "0",
+        "Unidades": "10",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:37:45"
+    },
+    {
+        "UUIDProducto": "4234",
+        "Descripcion": "QUESO DURO BLANDO",
+        "Contenido1": "12X4.ONZ PAQUETE",
+        "Fardo": "0",
+        "Unidades": "10",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:38:43"
+    },
+    {
+        "UUIDProducto": "4235",
+        "Descripcion": "QUESO DURO BLANDO",
+        "Contenido1": "12X16.ONZ FARDO",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:38:54"
+    },
+    {
+        "UUIDProducto": "4232",
+        "Descripcion": "QUESO DURO BLANDO",
+        "Contenido1": "12X 8.ONZ PAQUETE",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:39:03"
+    },
+    {
+        "UUIDProducto": "4231",
+        "Descripcion": "QUESILLO",
+        "Contenido1": "12X1LBS FARDO",
+        "Fardo": "0",
+        "Unidades": "15",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:39:13"
+    },
+    {
+        "UUIDProducto": "7025",
+        "Descripcion": "CARNE RES MOLIDA ESPECIAL",
+        "Contenido1": "30X1LBS FARDO",
+        "Fardo": "0",
+        "Unidades": "6",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:39:25"
+    }
+]

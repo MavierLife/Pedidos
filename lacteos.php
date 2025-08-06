@@ -30,7 +30,13 @@ $termino_busqueda = isset($_GET['search']) ? $conn->real_escape_string($_GET['se
 
 // Construir la consulta SQL para productos lácteos específicos
 $sql_base = "FROM tblcatalogodeproductos";
-$sql_where = " WHERE (Descripcion LIKE '%QUESO DURO%' OR Descripcion LIKE '%QUESO SECO%' OR Descripcion LIKE '%QUESILLO%')";
+$sql_where = " WHERE (Descripcion LIKE '%QUESO DURO%' 
+                  OR Descripcion LIKE '%QUESO SECO%' 
+                  OR Descripcion LIKE '%QUESILLO%'
+                  OR Descripcion LIKE '%QUESO MAJADO%'
+                  OR Descripcion LIKE '%PAPA CONGELADA%'
+                  OR Descripcion LIKE '%PIERNITAS DE POLLO%'
+                  OR Descripcion LIKE '%CARNE RES MOLIDA ESPECIAL%')";
 
 // Agregar búsqueda si existe
 if (!empty($termino_busqueda)) {
@@ -316,9 +322,9 @@ $result = $conn->query($sql);
 <body>
     <div class="container">
         <div class="lacteos-header">
-            <h1>Productos Lácteos</h1>
+            <h1>PEDIDO DE CONGELADOS</h1>
             <p>Sucursal: <?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?></p>
-            <p><strong>Productos disponibles:</strong> Queso Duro, Queso Seco, Quesillo</p>
+            <p><strong>Productos disponibles:</strong> Queso Duro, Queso Seco, Quesillo, Queso Majada, Papa Congelada, Piernitas de Pollo, Carne Res Molida Especial</p>
         </div>
 
         <div class="search-container">
@@ -328,7 +334,7 @@ $result = $conn->query($sql);
             </form>
         </div>
         
-        <h2>Lista de Productos Lácteos</h2>
+        <h2>Lista de Productos Congelados</h2>
         <?php if ($result && $result->num_rows > 0): ?>
             <table>
                 <thead>
@@ -384,7 +390,7 @@ $result = $conn->query($sql);
             </div>
 
         <?php else: ?>
-            <p>No se encontraron productos lácteos<?php if (!empty($termino_busqueda)) echo " para la búsqueda '" . htmlspecialchars($termino_busqueda) . "'"; ?>.</p>
+            <p>No se encontraron productos congelados<?php if (!empty($termino_busqueda)) echo " para la búsqueda '" . htmlspecialchars($termino_busqueda) . "'"; ?>.</p>
         <?php endif; ?>
 
         <p><a href="index.php" class="back-link">← Volver al Inicio</a></p>
@@ -394,7 +400,7 @@ $result = $conn->query($sql);
     <div id="pedidoModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Agregar a Pedido Lácteo</h2>
+                <h2>Agregar a Pedido Congelado</h2>
             </div>
             <div class="modal-body">
                 <p id="modalProductName" class="product-name"></p>

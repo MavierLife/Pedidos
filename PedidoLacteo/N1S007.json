@@ -1,0 +1,38 @@
+[
+    {
+        "UUIDProducto": "6769",
+        "Descripcion": "PAPA CONGELADA",
+        "Contenido1": "10X2LBS FARDO",
+        "Fardo": "0",
+        "Unidades": "2",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:38:17"
+    },
+    {
+        "UUIDProducto": "4229",
+        "Descripcion": "QUESO SECO",
+        "Contenido1": "12X4.ONZ PAQUETE",
+        "Fardo": "0",
+        "Unidades": "4",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:40:01"
+    },
+    {
+        "UUIDProducto": "4234",
+        "Descripcion": "QUESO DURO BLANDO",
+        "Contenido1": "12X4.ONZ PAQUETE",
+        "Fardo": "0",
+        "Unidades": "4",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:40:13"
+    },
+    {
+        "UUIDProducto": "7506",
+        "Descripcion": "QUESO MAJADO CON CHILE",
+        "Contenido1": "12X 8.ONZ PAQUETE",
+        "Fardo": "0",
+        "Unidades": "3",
+        "Observaciones": "",
+        "FechaHoraRegistro": "2025-08-06 17:40:25"
+    }
+]

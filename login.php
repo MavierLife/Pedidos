@@ -10,7 +10,7 @@ $dbname = "helensystem_data";
 $error_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $uuid_sucursal = $_POST['UUIDSucursal'] ?? '';
+    $uuid_sucursal = strtoupper($_POST['UUIDSucursal'] ?? '');
 
     if (empty($uuid_sucursal)) {
         $error_message = "Por favor, ingrese el UUID de la Sucursal.";
@@ -117,7 +117,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="login.php" method="post">
             <div>
                 <label for="UUIDSucursal">UUID Sucursal:</label>
-                <input type="text" id="UUIDSucursal" name="UUIDSucursal" required>
+                <input type="text" 
+                       id="UUIDSucursal" 
+                       name="UUIDSucursal" 
+                       style="text-transform: uppercase;" 
+                       required>
             </div>
             <div>
                 <input type="submit" value="Ingresar">

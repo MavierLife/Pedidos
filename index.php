@@ -53,6 +53,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -198,15 +199,34 @@ $result = $conn->query($sql);
             padding-top: 60px;
         }
 
+        /* Estilo general para modal-content */
         .modal-content {
             background-color: #fefefe;
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            max-width: 400px; /* Ancho máximo del modal */
+            max-width: 400px; /* Este es el valor predeterminado para otros modales */
             border-radius: 8px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        /* Estilo específico para el modal de ver pedido */
+        #verPedidoModal .modal-content {
+            max-width: 90%; /* Aumentamos el ancho máximo */
+            width: 1200px; /* Establecemos un ancho fijo más grande */
+        }
+
+        /* Ajustamos el contenido interno del modal de ver pedido */
+        #verPedidoModalBody .scrollable-table {
+            max-height: 70vh;
+            overflow-y: auto;
+            overflow-x: auto; /* Agregamos scroll horizontal si es necesario */
+        }
+
+        #verPedidoModalBody table {
+            min-width: 100%; /* Aseguramos que la tabla ocupe todo el ancho disponible */
+            width: auto; /* Permitimos que la tabla crezca si es necesario */
         }
 
         .modal-header h2 {
@@ -333,6 +353,65 @@ $result = $conn->query($sql);
             background-color: #5a6268;
         }
 
+        /* Estilos para la flecha animada y mensaje de recordatorio */
+        .reminder-container {
+            position: relative;
+            display: inline-block;
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+
+        .reminder-arrow {
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 15px solid #ff6b6b;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            animation: bounce 2s infinite;
+        }
+
+        .reminder-text {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+            animation: pulse 3s infinite;
+            display: inline-block;
+            margin-left: 15px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+            40% {
+                transform: translateY(-50%) translateX(5px);
+            }
+            60% {
+                transform: translateY(-50%) translateX(3px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         /* Estilos para el botón de cerrar (X) en el modal de Ver Pedido */
         #verPedidoModal .modal-header .close-ver-pedido {
             color: #aaa;
@@ -350,27 +429,37 @@ $result = $conn->query($sql);
         }
 
         /* Estilos para la tabla dentro del modal de ver pedido */
-        #verPedidoModalBody table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
+        #verPedidoModalBody .scrollable-table {
+            max-height: 70vh;
+            overflow-y: auto;
+            overflow-x: auto; /* Agregamos scroll horizontal si es necesario */
         }
 
-        #verPedidoModalBody th, #verPedidoModalBody td {
-            border: 1px solid #ddd;
+        #verPedidoModalBody table {
+            min-width: 100%; /* Aseguramos que la tabla ocupe todo el ancho disponible */
+            width: auto; /* Permitimos que la tabla crezca si es necesario */
+        }
+
+        #verPedidoModalBody th,
+        #verPedidoModalBody td {
+            border: 1px solid #dee2e6;
             padding: 8px;
-            text-align: left;
-            font-size: 0.9em;
         }
 
         #verPedidoModalBody th {
-            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+            background-color: #007bff;
+            color: white;
             font-weight: bold;
-            color: #333; /* Asegura que el texto sea oscuro para buen contraste */
         }
-        #verPedidoModalBody .scrollable-table {
-            max-height: 400px; /* Altura máxima antes de mostrar scroll */
-            overflow-y: auto;  /* Scroll vertical si el contenido excede la altura */
+
+        #verPedidoModalBody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        #verPedidoModalBody tr:hover {
+            background-color: #f1f1f1;
         }
 
         /* Estilos para el botón de eliminar en el modal de ver pedido */
@@ -388,6 +477,75 @@ $result = $conn->query($sql);
             background-color: #c82333;
         }
 
+        /* Estilos para el Modal de Historial de Pedidos */
+        #historialModal .modal-content {
+            max-width: 800px; /* Ancho máximo para el modal de historial */
+        }
+
+        #historialModalBody table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        #historialModalBody th, #historialModalBody td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        #historialModalBody th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        #historialModalBody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        #historialModalBody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn-ver, .btn-descargar {
+            padding: 5px 10px;
+            margin: 0 3px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .btn-ver {
+            padding: 8px 15px;
+            background-color: #17a2b8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-ver:hover {
+            background-color: #138496;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn-descargar {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-descargar:hover {
+            background-color: #218838;
+        }
+
     </style>
 </head>
 <body>
@@ -395,10 +553,15 @@ $result = $conn->query($sql);
         <h1>Generar Pedido Sucursal</h1>
         <p>Sucursal: <?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?>
             <button type="button" id="verPedidoBtn" class="action-btn" style="margin-bottom: 20px;">Ver Pedido Actual</button>
+            <button type="button" id="historialBtn" class="action-btn" style="margin-bottom: 20px; background-color: #17a2b8;">Historial de Pedidos</button>
         </p>
         <p>
             <button type="button" id="codigoBtn" class="codigo-btn">CÓDIGO</button>
-            <button type="button" id="lacteosBtn" class="codigo-btn">LACTEOS</button>
+            <button type="button" id="lacteosBtn" class="codigo-btn">CONGELADOS</button>
+            <span class="reminder-container">
+                <span class="reminder-arrow"></span>
+                <span class="reminder-text">RECUERDA REALIZAR TU PEDIDO DE CONGELADOS ANTES DEL MIÉRCOLES</span>
+            </span>
         </p>
 
         <div class="search-container">
@@ -518,6 +681,22 @@ $result = $conn->query($sql);
         </div>
     </div>
 
+    <!-- El Modal para Historial de Pedidos -->
+    <div id="historialModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Historial de Pedidos</h2>
+                <span class="close-historial">&times;</span>
+            </div>
+            <div class="modal-body" id="historialModalBody">
+                <p>Cargando historial...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cancel-btn close-historial-footer">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const uuidSucursalGlobal = '<?php echo htmlspecialchars($_SESSION['UUIDSucursal']); ?>';
         // Modal para Agregar Producto
@@ -600,7 +779,12 @@ $result = $conn->query($sql);
         const codigoBtn = document.getElementById("codigoBtn");
         if (codigoBtn) {
             codigoBtn.onclick = function() {
-                window.open('http://26.123.15.44/GENERAR/', '_blank');
+                const sucursal = '<?php echo $_SESSION['UUIDSucursal']; ?>';
+                if (sucursal === 'N1S001' || sucursal === 'N1S004') {
+                    window.open('http://100.65.235.99/generar/', '_blank');
+                } else {
+                    window.open('http://26.123.15.44/GENERAR/', '_blank');
+                }
             }
         }
 
@@ -626,21 +810,44 @@ $result = $conn->query($sql);
             }
         }
 
-        // Función para cargar pedidos
+        // función para cargar pedidos actual
         function cargarPedidos() {
             fetch('cargar_pedido.php')
                 .then(response => response.json())
                 .then(data => {
                     if (data.success && data.pedidos && data.pedidos.length > 0) {
-                        let tableHtml = '<div class="scrollable-table"><table><thead><tr><th>Descripción</th><th>Fardo</th><th>Unidades</th><th>Acción</th></tr></thead><tbody>';
+                        let tableHtml = '<div class="scrollable-table"><table>' +
+                            '<thead><tr>' +
+                            '<th style="background-color: #007bff; color: white;">Producto</th>' +
+                            '<th style="background-color: #007bff; color: white; text-align: center;">Solicitado</th>' +
+                            '<th style="background-color: #007bff; color: white; text-align: center;">Fecha</th>' +
+                            '<th style="background-color: #007bff; color: white; text-align: center;">Acción</th>' +
+                            '</tr></thead><tbody>';
+                        
                         data.pedidos.forEach(pedido => {
+                            const fechaFormateada = new Date(pedido.FechaHoraRegistro).toLocaleString('es-ES', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            });
+                            
+                            const descripcionCompleta = `${pedido.Descripcion || ''} - ${pedido.Contenido1 || ''}`;
+                            const solicitado = `${pedido.Fardo || '0'} | ${pedido.Unidades || '0'}`;
+                            
                             tableHtml += `<tr>
-                                <td>${pedido.Descripcion || ''}</td>
-                                <td>${pedido.Fardo || '0'}</td>
-                                <td>${pedido.Unidades || '0'}</td>
-                                <td><button class="btn-eliminar" onclick="eliminarProducto('${pedido.UUIDProducto}', '${(pedido.Descripcion || '').replace(/'/g, "\\'")}')">Eliminar</button></td>
-                             </tr>`;
+                                <td style="text-align: left;">${descripcionCompleta}</td>
+                                <td style="text-align: center;">${solicitado}</td>
+                                <td style="text-align: center;">${fechaFormateada}</td>
+                                <td style="text-align: center;">
+                                    <button class="btn-eliminar" onclick="eliminarProducto('${pedido.UUIDProducto}', '${(pedido.Descripcion || '').replace(/'/g, "\\'")}')">
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>`;
                         });
+                        
                         tableHtml += '</tbody></table></div>';
                         verPedidoModalBody.innerHTML = tableHtml;
                     } else if (data.success && data.pedidos && data.pedidos.length === 0) {
@@ -711,20 +918,124 @@ $result = $conn->query($sql);
             });
         }
 
-        closeVerPedidoElements.forEach(element => {
+        // Modal para Historial de Pedidos
+        const historialModal = document.getElementById("historialModal");
+        const historialBtn = document.getElementById("historialBtn");
+        const historialModalBody = document.getElementById("historialModalBody");
+        const closeHistorialElements = document.querySelectorAll(".close-historial, .close-historial-footer");
+
+        if (historialBtn) {
+            historialBtn.onclick = function() {
+                historialModalBody.innerHTML = '<p>Cargando historial...</p>';
+                cargarHistorial();
+                historialModal.style.display = "block";
+            }
+        }
+
+        // Función para cargar historial
+        function cargarHistorial() {
+            fetch('cargar_historial.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.historial && data.historial.length > 0) {
+                        let tableHtml = '<div class="scrollable-table"><table>' +
+                            '<thead><tr><th>Fecha</th><th>Archivo</th><th>Acción</th></tr></thead><tbody>';
+                        data.historial.forEach(archivo => {
+                            tableHtml += `<tr>
+                                <td>${archivo.fecha}</td>
+                                <td>${archivo.archivo}</td>
+                                <td>
+                                    <button class="btn-ver" onclick="verArchivo('${archivo.ruta}')">Ver Pedido</button>
+                                </td>
+                            </tr>`;
+                        });
+                        tableHtml += '</tbody></table></div>';
+                        historialModalBody.innerHTML = tableHtml;
+                    } else {
+                        historialModalBody.innerHTML = '<p>No se encontraron archivos de respaldo para esta sucursal.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar historial:', error);
+                    historialModalBody.innerHTML = '<p>Ocurrió un error al cargar el historial.</p>';
+                });
+        }
+
+        function verArchivo(ruta) {
+            fetch(ruta)
+                .then(response => response.text())
+                .then(contenido => {
+                    // Convertir el contenido en un array de líneas y procesar
+                    const lineas = contenido.split('\n');
+                    let tablaHtml = `
+                        <div style="max-height: 70vh; overflow-y: auto;">
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                                <thead>
+                                    <tr>
+                                        <th style="padding: 12px; background-color: #007bff; color: white; text-align: left; border: 1px solid #dee2e6; width: 70%;">Producto</th>
+                                        <th style="padding: 12px; background-color: #007bff; color: white; text-align: center; border: 1px solid #dee2e6; width: 30%;">Solicitado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>`;
+
+                    // Procesar cada línea
+                    lineas.forEach(linea => {
+                        const partes = linea.split('","');
+                        if (partes.length >= 5) { // Asegurar que la línea tiene el formato esperado
+                            const producto = partes[3].replace(/"/g, '');
+                            const solicitado = partes[4].replace(/"/g, '');
+                            if (producto !== 'producto' && producto !== '') { // Evitar encabezado y líneas vacías
+                                tablaHtml += `
+                                    <tr>
+                                        <td style="padding: 8px; border: 1px solid #dee2e6;">${producto}</td>
+                                        <td style="padding: 8px; border: 1px solid #dee2e6; text-align: center;">${solicitado}</td>
+                                    </tr>`;
+                            }
+                        }
+                    });
+
+                    tablaHtml += `
+                                </tbody>
+                            </table>
+                        </div>`;
+
+                    Swal.fire({
+                        title: 'Detalle del Pedido',
+                        html: tablaHtml,
+                        width: '90%', // Aumentado de 80% a 90%
+                        maxWidth: '1200px', // Agregado un ancho máximo
+                        confirmButtonText: 'Cerrar',
+                        confirmButtonColor: '#17a2b8',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeIn'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOut'
+                        }
+                    });
+                })
+                .catch(error => {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'No se pudo cargar el contenido del archivo',
+                        icon: 'error',
+                        confirmButtonColor: '#dc3545'
+                    });
+                });
+        }
+
+        closeHistorialElements.forEach(element => {
             element.onclick = function() {
-                verPedidoModal.style.display = "none";
+                historialModal.style.display = "none";
             }
         });
 
-        // Cerrar el modal si el usuario hace clic fuera de él
+        // Actualizar el window.onclick para incluir el nuevo modal
         window.onclick = function(event) {
-            // Ya no cerramos el modal de agregar producto al hacer clic fuera
-            // if (event.target == modal) { 
-            //     closeModal();
-            // } else 
-            if (event.target == verPedidoModal) { // Modal de ver pedido sí se cierra
+            if (event.target == verPedidoModal) {
                 verPedidoModal.style.display = "none";
+            } else if (event.target == historialModal) {
+                historialModal.style.display = "none";
             }
         }
     </script>

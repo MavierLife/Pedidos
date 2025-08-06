@@ -1,5 +1,13 @@
 <?php
-session_start(); // Usaremos sesiones para mostrar mensajes de estado
+session_start(); 
+
+// Eliminar estas líneas de verificación de login que están al inicio del archivo
+/* 
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+*/
 
 // Función para generar el contenido CSV (la misma que antes)
 function generarContenidoCsvParaTienda($jsonFilePath, $iniciales) {
@@ -277,6 +285,9 @@ if (isset($_SESSION['dashboard_message'])) {
             <a href="descargar_pedido_lacteo.php" class="btn btn-lacteo" style="margin-bottom: 10px;">
                 📄 Descargar Pedido Lácteo (PDF)
             </a>
+            <button onclick="mostrarPedidoTiempoReal()" class="btn btn-lacteo" style="margin-left: 10px;">
+                🔄 Pedido en Tiempo Real
+            </button>
             <p style="font-size: 12px; color: #666;">El archivo incluye: listado por sucursal, totales y resumen general</p>
         </div>
         
@@ -284,6 +295,23 @@ if (isset($_SESSION['dashboard_message'])) {
     </div>
 
     <script>
+        // Primero, prepara las opciones en PHP antes del script
+        // Crear variable JavaScript con los datos de PHP
+        const tiendasDisponibles = <?php 
+            $tiendasLacteos = [];
+            $pedidosLacteoDir = 'PedidoLacteo/';
+            if (is_dir($pedidosLacteoDir)) {
+                $jsonFiles = glob($pedidosLacteoDir . '*.json');
+                if ($jsonFiles !== false) {
+                    foreach ($jsonFiles as $jsonFile) {
+                        $tiendaId = basename($jsonFile, '.json');
+                        $tiendasLacteos[$tiendaId] = $tiendaId;
+                    }
+                }
+            }
+            echo json_encode($tiendasLacteos);
+        ?>;
+
         <?php if (isset($mensajeGlobal) && isset($mensajeGlobal['show_alert'])): ?>
             // Mostrar SweetAlert para mensajes especiales
             Swal.fire({
@@ -294,6 +322,109 @@ if (isset($_SESSION['dashboard_message'])) {
                 confirmButtonColor: '#3085d6'
             });
         <?php endif; ?>
+
+        function mostrarPedidoTiempoReal() {
+            Swal.fire({
+                title: 'Seleccionar Sucursal',
+                input: 'select',
+                inputOptions: tiendasDisponibles,
+                inputPlaceholder: 'Selecciona una sucursal',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Ver Pedido',
+                showLoaderOnConfirm: true,
+                preConfirm: (tienda) => {
+                    return fetch(`obtener_pedido_lacteo.php?tienda=${tienda}&source=lacteo`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(response.statusText)
+                            }
+                            return response.json()
+                        })
+                        .catch(error => {
+                            Swal.showValidationMessage(
+                                `Error al obtener el pedido: ${error}`
+                            )
+                        })
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const tienda = result.value.tienda;
+                    let lastData = null;
+
+                    // Función para actualizar los datos
+                    function actualizarDatos() {
+                        fetch(`obtener_pedido_lacteo.php?tienda=${tienda}&source=lacteo`)
+                            .then(response => response.json())
+                            .then(newData => {
+                                // Convertir los datos a una cadena para comparar
+                                const newDataString = JSON.stringify(newData.pedidos);
+                                const lastDataString = lastData ? JSON.stringify(lastData.pedidos) : null;
+                                
+                                // Comparar si hay cambios
+                                if (newDataString !== lastDataString) {
+                                    lastData = newData;
+                                    // Actualizar el contenido del modal con los nuevos datos
+                                    const modalContent = Swal.getHtmlContainer();
+                                    if (modalContent) {
+                                        modalContent.innerHTML = generarTablaPedido(newData.pedidos);
+                                    }
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error al actualizar datos:', error);
+                            });
+                    }
+
+                    // Mostrar datos iniciales
+                    Swal.fire({
+                        title: `Pedido Lácteo - ${tienda}`,
+                        html: generarTablaPedido(result.value.pedidos),
+                        width: '80%',
+                        confirmButtonText: 'Cerrar',
+                        didOpen: () => {
+                            // Actualizar cada 5 segundos
+                            const interval = setInterval(actualizarDatos, 5000);
+                            // Guardar el interval ID en el modal
+                            Swal.getPopup().setAttribute('data-interval-id', interval);
+                        },
+                        willClose: () => {
+                            // Limpiar el intervalo al cerrar
+                            const interval = Swal.getPopup().getAttribute('data-interval-id');
+                            clearInterval(interval);
+                        }
+                    });
+                }
+            });
+        }
+
+        function generarTablaPedido(pedidos) {
+            let tabla = `
+                <table style="width:100%; margin-top:20px; border-collapse:collapse;">
+                    <thead>
+                        <tr style="background-color:#f3f3f3;">
+                            <th style="padding:8px; border:1px solid #ddd;">Producto</th>
+                            <th style="padding:8px; border:1px solid #ddd;">Fardos</th>
+                            <th style="padding:8px; border:1px solid #ddd;">Unidades</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            pedidos.forEach(item => {
+                tabla += `
+                    <tr>
+                        <td style="padding:8px; border:1px solid #ddd;">${item.producto}</td>
+                        <td style="padding:8px; border:1px solid #ddd;">${item.fardos}</td>
+                        <td style="padding:8px; border:1px solid #ddd;">${item.unidades}</td>
+                    </tr>
+                `;
+            });
+            
+            tabla += '</tbody></table>';
+            return tabla;
+        }
     </script>
 </body>
 </html>
