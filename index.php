@@ -727,33 +727,60 @@ $result = $conn->query($sql);
             const unidades = document.getElementById("unidades").value;
             const observaciones = document.getElementById("observaciones").value;
 
-            const pedidoData = {
-                UUIDProducto: uuidProducto,
-                Descripcion: descripcion,
-                Contenido1: contenido1,
-                Fardo: cajasFardos,
-                Unidades: unidades,
-                Observaciones: observaciones,
-                UUIDSucursal: uuidSucursalGlobal
-            };
-
-            fetch('guardar_pedido.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(pedidoData),
-            })
+            // Primero verificar si el producto fue pedido ayer
+            fetch(`verificar_pedido_anterior.php?uuidProducto=${encodeURIComponent(uuidProducto)}`)
             .then(response => response.json())
             .then(data => {
-                if (data.success) {
+                if (data.encontrado) {
+                    // Si el producto fue encontrado en el pedido de ayer, mostrar confirmación
+                    return Swal.fire({
+                        title: '¡Advertencia!',
+                        html: `Este producto ya fue solicitado ayer con las siguientes cantidades:<br>
+                      <strong>Cajas/Fardos:</strong> ${data.fardo}<br>
+                      <strong>Unidades:</strong> ${data.unidades}<br><br>
+                      ¿Deseas agregarlo de todos modos?`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, agregar',
+                        cancelButtonText: 'Cancelar'
+                    });
+                }
+                return { isConfirmed: true }; // Si no fue encontrado, continuar normalmente
+            })
+            .then(result => {
+                if (result.isConfirmed) {
+                    const pedidoData = {
+                        UUIDProducto: uuidProducto,
+                        Descripcion: descripcion,
+                        Contenido1: contenido1,
+                        Fardo: cajasFardos,
+                        Unidades: unidades,
+                        Observaciones: observaciones,
+                        UUIDSucursal: uuidSucursalGlobal
+                    };
+
+                    return fetch('guardar_pedido.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(pedidoData),
+                    });
+                }
+            })
+            .then(response => response ? response.json() : null)
+            .then(data => {
+                if (data && data.success) {
                     Swal.fire({
                         title: '¡Guardado!',
                         text: 'Pedido guardado exitosamente.',
                         icon: 'success',
                         confirmButtonText: 'Aceptar'
                     });
-                } else {
+                    closeModal();
+                } else if (data) {
                     Swal.fire({
                         title: 'Error',
                         text: 'Error al guardar el pedido: ' + data.message,
@@ -761,7 +788,6 @@ $result = $conn->query($sql);
                         confirmButtonText: 'Aceptar'
                     });
                 }
-                closeModal();
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -771,7 +797,6 @@ $result = $conn->query($sql);
                     icon: 'error',
                     confirmButtonText: 'Aceptar'
                 });
-                closeModal();
             });
         }
 
@@ -780,7 +805,7 @@ $result = $conn->query($sql);
         if (codigoBtn) {
             codigoBtn.onclick = function() {
                 const sucursal = '<?php echo $_SESSION['UUIDSucursal']; ?>';
-                if (sucursal === 'N1S001' || sucursal === 'N1S004') {
+                if (sucursal === 'N1S001' || sucursal === 'N1S004' || sucursal === 'N1S003' || sucursal === 'N1S006') {
                     window.open('http://100.65.235.99/generar/', '_blank');
                 } else {
                     window.open('http://26.123.15.44/GENERAR/', '_blank');
