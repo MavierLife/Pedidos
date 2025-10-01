@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="login-container">
-        <h2>Acceso Sucursales11111</h2>
+        <h2>Acceso Sucursales/h2>
         <?php if (!empty($error_message)): ?>
             <p class="error-message"><?php echo htmlspecialchars($error_message); ?></p>
         <?php endif; ?>
